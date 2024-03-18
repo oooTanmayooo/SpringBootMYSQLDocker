@@ -1,0 +1,37 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: test
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root1234
+
+  app:
+    image: springboot-mysql-docker
+    container_name: springboot-mysql-docker
+    ports:
+      - "9090:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/test
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root1234
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+#    image: openjdk:17-jre-slim
+#    volumes:
+#      -./target/springboot-mysql-docker.jar:/app/springboot-mysql-docker.jar
+
+#  ports:
+#    -"8081:8081"
+#  command:
+#    ["java", "-jar", "/app/springboot-mysql-docker.jar"]
+#  environment:
+#    - SPRING_PROFILES_ACTIVE=production
+
