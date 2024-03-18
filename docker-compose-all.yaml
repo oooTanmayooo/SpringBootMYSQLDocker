@@ -19,7 +19,9 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/test
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_PASSWORD: root1234
+      volumes:
+        - mysql_data:/var/lib/mysql
 
 volumes:
   mysql_data:
