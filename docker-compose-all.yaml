@@ -17,7 +17,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/test
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3307/test
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
 
